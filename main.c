@@ -3,6 +3,5 @@
 
 int main()
 {
-    char *s = ft_itoa(-2147483648);
-    printf("%s\n", s);
+    ft_putnbr_fd(-2147483648,1);
 }
