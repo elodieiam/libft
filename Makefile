@@ -41,7 +41,6 @@ CC = cc
 
 CCFLAGS = -Wall -Wextra -Werror
 
-
 all : $(NAME)
 
 $(NAME) : $(OBJ)

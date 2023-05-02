@@ -38,28 +38,29 @@ char	*ft_itoa(int n)
 	long	nb;
 	int		i;
 
+	str = malloc(sizeof(char) * (i + 1));
 	nb = n;
 	i = len(n);
-	if (!(str = malloc(sizeof(char) * (i + 1))))
+	if (!(str))
 		return (0);
 	str[i--] = '\0';
 	if (nb == 0)
-    {
-        str[0] = '0';
-        return (str);
-    }
-    if (nb < 0)
-    {
-        str[0] = '-';
-        nb *= -1;
-    }
-    while (nb > 0)
-    {
-        str[i] = 48 + (nb % 10);
-        nb /= 10;
-        i--;
-    }
-    return (str);
+	{
+		str[0] = '0';
+		return (str);
+	}
+	if (nb < 0)
+	{
+		str[0] = '-';
+		nb *= -1;
+	}
+	while (nb > 0)
+	{
+		str[i] = 48 + (nb % 10);
+		nb /= 10;
+		i--;
+	}
+	return (str);
 }
 
 /*#include <stdio.h>

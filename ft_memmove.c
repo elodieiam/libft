@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/02 14:59:21 by elrichar          #+#    #+#             */
+/*   Updated: 2023/05/02 14:59:21 by elrichar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void *ft_memmove (void *dest, const void *src, size_t num)
+void	*ft_memmove(void *dest, const void *src, size_t num)
 {
-    unsigned char *dest_mve;
-    const unsigned char *src_mve;
-    int i;
+	unsigned char		*dest_mve;
+	const unsigned char	*src_mve;
+	int	i;
 
     dest_mve = dest;
     src_mve = src;
@@ -17,7 +29,6 @@ void *ft_memmove (void *dest, const void *src, size_t num)
             i--;
         }
     }
-
     else
     {
         i = 0;
@@ -27,7 +38,6 @@ void *ft_memmove (void *dest, const void *src, size_t num)
             i++;
         }
     }
-
     return (dest);
 }
 
