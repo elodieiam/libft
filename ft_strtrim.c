@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/03 15:01:38 by elrichar          #+#    #+#             */
+/*   Updated: 2023/05/03 15:01:38 by elrichar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "libft.h"
 
 int	ft_is_set(char const *set, char c)
@@ -44,7 +57,7 @@ int	ft_end_len(char const *s1, char const *set)
 	return (len);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*arr;
 	size_t	len_start;

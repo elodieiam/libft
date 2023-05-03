@@ -38,17 +38,15 @@ char	*ft_itoa(int n)
 	long	nb;
 	int		i;
 
+	i = len(n);
 	str = malloc(sizeof(char) * (i + 1));
 	nb = n;
-	i = len(n);
+
 	if (!(str))
 		return (0);
-	str[i--] = '\0';
+	i--;
 	if (nb == 0)
-	{
 		str[0] = '0';
-		return (str);
-	}
 	if (nb < 0)
 	{
 		str[0] = '-';

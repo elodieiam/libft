@@ -1,27 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/03 14:51:08 by elrichar          #+#    #+#             */
+/*   Updated: 2023/05/03 14:51:08 by elrichar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "libft.h"
 
-unsigned int    ft_strlcat(char *dest, char *src, size_t size)
+unsigned int	ft_strlcat(char *dest, char *src, size_t size)
 {
-   size_t d;
-   size_t s;
-   size_t i;
+	size_t	d;
+	size_t	s;
+	size_t	i;
 
-   d = 0;
-   s = 0;
-   i = 0;
-   while (dest[d])
-        d++;
-    while (src[s])
-        s++;
-    if (size <= d)
-        return (s + size);
-    while (src[i] && (d + i) < (size - 1))
-    {
-        dest[d + i] = src[i];
-        i++;
-    }
-    dest[d + i] = '\0';
-    return (s + d);
+	d = 0;
+	s = 0;
+	i = 0;
+	while (dest[d])
+		d++;
+	while (src[s])
+		s++;
+	if (size <= d)
+		return (s + size);
+	while (src[i] && (d + i) < (size - 1))
+	{
+		dest[d + i] = src[i];
+		i++;
+	}
+	dest[d + i] = '\0';
+	return (s + d);
 }
 
 

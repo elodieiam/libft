@@ -1,19 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/03 14:46:54 by elrichar          #+#    #+#             */
+/*   Updated: 2023/05/03 14:46:54 by elrichar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "libft.h"
 
-char    *ft_strchr(const char *str, int searched_char)
+char	*ft_strchr(const char *str, int searched_char)
 {
-    int i;
-    unsigned char   c;
+	unsigned char	c;
 
-    i = 0;
-    c = searched_char;
-    while (str[i])
-    {
-        if (str[i] == c)
-            return ((char *)str + i);
-        i++;
-    }
-    return (NULL);
+	c = searched_char;
+	while (*str)
+	{
+		if (*str == c)
+			return ((char *)str);
+		str++;
+	}
+	if (c == 0)
+		return ((char *)str);
+	return (NULL);
 }
 
 /*#include <stdio.h>
