@@ -19,7 +19,6 @@ int	ft_isalnum(int c)
 	return (0);
 }
 
-
 /*
 #include <stdio.h>
 

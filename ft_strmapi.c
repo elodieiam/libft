@@ -10,14 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-
-/*char    function(unsigned int i, char c)
-{
-    c = c + i;
-    return (c);
-}*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -25,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*mapi;
 	unsigned int	len;
 
+	if (s == NULL || (*f) == NULL)
+		return (NULL);
 	i = 0;
 	len = ft_strlen(s);
 	mapi = malloc((len + 1) * sizeof(char));
@@ -39,7 +34,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (mapi);
 }
 
-
 /*#include <stdio.h>
 
 int main()
@@ -47,4 +41,9 @@ int main()
     char    *s = "banane";
     printf("%s\n",ft_strmapi(s, &function));
     printf("%s\n", s);
+	char    function(unsigned int i, char c)
+{
+    c = c + i;
+    return (c);
+}
 }*/

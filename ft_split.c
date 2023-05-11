@@ -10,16 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-int	nb_strings(char const *str, char c)
+static int	nb_strings(char const *str, char c)
 {
 	int	i;
 	int	nb;
 
 	i = 0;
 	nb = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 	{
 		while (str[i] && str[i] == c)
@@ -32,7 +33,7 @@ int	nb_strings(char const *str, char c)
 	return (nb);
 }
 
-int	ft_strlen_word(char const *str, char c)
+static int	len_word(char const *str, char c)
 {
 	int	i;
 
@@ -42,34 +43,26 @@ int	ft_strlen_word(char const *str, char c)
 	return (i);
 }
 
-char	*ft_word(char const *str, char c)
+void	*free_mem(char **strings, int i)
 {
-	int		len;
-	int		i;
-	char	*word;
-
-	len = ft_strlen_word(str, c);
-	i = 0;
-	word = malloc(sizeof(char) * (len + 1));
-	if (word == NULL)
-		return (NULL);
-	while (i < len)
+	while (i--)
 	{
-		word[i] = str[i];
-		i++;
+		if (strings[i])
+			free(strings[i]);
 	}
-	word[i] = '\0';
-	return (word);
+	free(strings);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**strings;
 	int		i;
+	int		wd_len;
 
 	i = 0;
 	strings = malloc(sizeof(char *) * (nb_strings(s, c) + 1));
-	if (strings == NULL)
+	if (!strings)
 		return (NULL);
 	while (*s)
 	{
@@ -77,11 +70,14 @@ char	**ft_split(char const *s, char c)
 			s++;
 		if (*s)
 		{
-			strings[i] = ft_word(s, c);
+			wd_len = len_word(s, c);
+			strings[i] = ft_calloc(wd_len + 1, sizeof(char));
+			if (!strings[i])
+				return (free_mem(strings, i));
+			ft_strlcpy(strings[i], s, wd_len + 1);
+			s += wd_len;
 			i++;
 		}
-		while (*s && *s != c)
-			s++;
 	}
 	strings[i] = NULL;
 	return (strings);

@@ -34,9 +34,21 @@ SRC = ft_isalnum.c\
 	  ft_strmapi.c\
 	  ft_strtrim.c\
 	  ft_memchr.c\
+
+SRC_BONUS = ft_lstadd_front.c\
+			ft_lstadd_back.c\
+			ft_lstclear.c\
+			ft_lstdelone.c\
+			ft_lstiter.c\
+			ft_lstlast.c\
+			ft_lstnew.c\
+			ft_lstsize.c\
+			ft_lstmap.c\
 	  
 
 OBJ = $(SRC:.c=.o) 
+
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 CC = cc
 
@@ -48,12 +60,16 @@ $(NAME) : $(OBJ)
 	$(CC) $(CCFLAGS) -c $(SRC)
 	ar -rcs $(NAME) $(OBJ)
 
+bonus : $(OBJ_BONUS)
+	$(CC) $(CCFLAGS) -c $(SRC_BONUS)
+	ar -rcs $(NAME) $(OBJ_BONUS)
+
 clean :
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all bonus clean fclean re

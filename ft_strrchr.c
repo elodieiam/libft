@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
 char	*ft_strrchr(const char *str, int searched_char)
@@ -31,9 +30,9 @@ char	*ft_strrchr(const char *str, int searched_char)
 	return (NULL);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 int	main(void)
 {
 	const   char *s = "tripouille";
 	printf("%p et %s\n", s, ft_strrchr(s,'v'));
-}
+}*/

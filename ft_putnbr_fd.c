@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
@@ -24,7 +23,7 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, "-", 1);
 		nb = -nb;
 	}
-	else if (nb >= 0 && nb < 10)
+	if (nb >= 0 && nb < 10)
 	{
 		c = nb + 48;
 		write (fd, &c, 1);

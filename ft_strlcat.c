@@ -10,15 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-unsigned int	ft_strlcat(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	d;
 	size_t	s;
 	size_t	i;
 
+	if (dest == NULL || src == NULL)
+		return (0);
 	d = 0;
 	s = 0;
 	i = 0;
@@ -36,7 +37,6 @@ unsigned int	ft_strlcat(char *dest, char *src, size_t size)
 	dest[d + i] = '\0';
 	return (s + d);
 }
-
 
 /*#include <stdio.h>
 int main()

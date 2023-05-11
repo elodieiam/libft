@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *src)
 {
 	int		src_len;
 	char	*p;
@@ -26,7 +25,7 @@ char	*ft_strdup(char *src)
 	p = malloc((src_len + 1) * sizeof(char));
 	if (p == NULL)
 		return (NULL);
-	i  = 0;
+	i = 0;
 	while (i < src_len)
 	{
 		p[i] = src[i];
@@ -36,9 +35,7 @@ char	*ft_strdup(char *src)
 	return (p);
 }
 
-/*#include <stdio.h>
-
-int main()
+/*int main()
 {
 	char text1[] = "Elodie";
 	printf("%s\n", ft_strdup(text1));

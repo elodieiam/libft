@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-#include <stdlib.h>
 
-int	len(long nb)
+static int	len(long nb)
 {
 	int	len;
 
 	len = 0;
+	if (nb == 0)
+		len = 1;
 	if (nb < 0)
 	{
 		nb *= -1;
@@ -39,9 +39,8 @@ char	*ft_itoa(int n)
 	int		i;
 
 	i = len(n);
-	str = malloc(sizeof(char) * (i + 1));
+	str = ft_calloc((i + 1), sizeof(char));
 	nb = n;
-
 	if (!(str))
 		return (0);
 	i--;

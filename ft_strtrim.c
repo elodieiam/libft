@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-int	ft_is_set(char const *set, char c)
+static int	ft_is_set(char const *set, char c)
 {
 	int	i;
 
@@ -27,7 +26,7 @@ int	ft_is_set(char const *set, char c)
 	return (0);
 }
 
-int	ft_start_len(char const *s1, char const *set)
+static int	ft_start_len(char const *s1, char const *set)
 {
 	int	i;
 	int	len;
@@ -42,7 +41,7 @@ int	ft_start_len(char const *s1, char const *set)
 	return (len);
 }
 
-int	ft_end_len(char const *s1, char const *set)
+static int	ft_end_len(char const *s1, char const *set)
 {
 	int	i;
 	int	len;
@@ -63,6 +62,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	len_start;
 	size_t	len_end;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	len_start = 0;
 	len_end = 0;
 	if (ft_start_len(s1, set))
@@ -79,4 +80,3 @@ int	main(void)
 	printf("%s\n", ft_strtrim("banane orange banane", "banane"));
 	return (0);
 }*/
-

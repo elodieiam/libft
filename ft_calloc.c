@@ -14,14 +14,16 @@
 
 void	*ft_calloc(size_t nb_el, size_t size)
 {
-	unsigned char	*arr;
+	void	*arr;
+	size_t	total_size;
 
-	if (nb_el == 0)
+	total_size = nb_el * size;
+	if (size != 0 && (total_size / size != nb_el))
 		return (NULL);
-	arr = malloc(nb_el * size);
+	arr = malloc(total_size);
 	if (!arr)
 		return (NULL);
-	ft_bzero(arr, nb_el * size);
+	ft_bzero(arr, total_size);
 	return (arr);
 }
 

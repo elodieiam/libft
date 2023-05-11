@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elodie <elodie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 10:45:18 by elrichar          #+#    #+#             */
-/*   Updated: 2023/05/06 14:59:50 by elodie           ###   ########.fr       */
+/*   Created: 2023/05/06 19:19:00 by elrichar          #+#    #+#             */
+/*   Updated: 2023/05/06 19:39:58 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *memBlock, int searchedChar, size_t size)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	const unsigned char	*p;
-	unsigned char		c;
-
-	p = memBlock;
-	c = searchedChar;
-	while (size > 0)
+	if (!lst)
+		return ;
+	while (lst)
 	{
-		if (*p == c)
-			return ((void *)p);
-		p++;
-		size--;
+		(*f)(lst->content);
+		lst = lst->next;
 	}
-	return (NULL);
 }
