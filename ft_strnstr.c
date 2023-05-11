@@ -17,7 +17,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (str == NULL && to_find == NULL)
+	if (str == NULL || to_find == NULL)
 		return (NULL);
 	if (*to_find == '\0')
 		return ((char *)str);
@@ -40,11 +40,10 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 }
 
 /*#include <stdio.h>
-#include <string.h>
 int	main(void)
 {
 	const char *l = "foo bar baz";
-	const char *s = "bar";
+	const char *s = NULL;
 	char *ptr;
 	ptr = ft_strnstr(l, s, 18);
     if (ptr == NULL)
