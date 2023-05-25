@@ -52,17 +52,18 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 CC = cc
 
-CCFLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	$(CC) $(CCFLAGS) -c $(SRC)
+$(NAME) : $(OBJ) libft.h
 	ar -rcs $(NAME) $(OBJ)
 
-bonus : $(OBJ_BONUS)
-	$(CC) $(CCFLAGS) -c $(SRC_BONUS)
-	ar -rcs $(NAME) $(OBJ_BONUS)
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
+
+bonus : $(OBJ) $(OBJ_BONUS)
+	ar -rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 clean :
 	rm -f $(OBJ) $(OBJ_BONUS)

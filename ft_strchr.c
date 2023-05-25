@@ -17,6 +17,8 @@ char	*ft_strchr(const char *str, int searched_char)
 	unsigned char	c;
 
 	c = searched_char;
+	if (!str)
+		return (NULL);
 	while (*str)
 	{
 		if (*str == c)
