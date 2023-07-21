@@ -80,7 +80,7 @@ bonus : $(OBJ) $(OBJ_BONUS)
 	ar -rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 clean :
-	rm -f $(OBJ) $(OBJ_BONUS) $(OBJ_PRINTF)
+	rm -f $(OBJ) $(OBJ_BONUS) $(OBJ_PRINTF) $(OBJ_GNL)
 
 fclean : clean
 	rm -f $(NAME)
