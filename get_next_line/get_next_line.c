@@ -6,11 +6,11 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 15:57:05 by elrichar          #+#    #+#             */
-/*   Updated: 2023/06/01 11:37:53 by elrichar         ###   ########.fr       */
+/*   Updated: 2023/07/22 15:33:49 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../libft.h"
 
 char	*clean_stash(char *stash)
 {
@@ -85,7 +85,7 @@ char	*read_file(int fd, char *stash)
 			return (NULL);
 		}
 		buffer[read_bytes] = '\0';
-		stash = ft_strjoin(stash, buffer);
+		stash = ft_strjoin_gnl(stash, buffer);
 	}
 	free (buffer);
 	return (stash);

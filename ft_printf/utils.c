@@ -6,13 +6,13 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:37:36 by elrichar          #+#    #+#             */
-/*   Updated: 2023/05/16 14:21:53 by elrichar         ###   ########.fr       */
+/*   Updated: 2023/07/22 14:08:44 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
-int	ft_putstr(char *s)
+int	ft_putstr_pf(char *s)
 {
 	int	len_el;
 
@@ -24,13 +24,13 @@ int	ft_putstr(char *s)
 	}
 	while (*s)
 	{
-		len_el += ft_putchar(*s);
+		len_el += ft_putchar_pf(*s);
 		s++;
 	}
 	return (len_el);
 }
 
-int	ft_putchar(char c)
+int	ft_putchar_pf(char c)
 {
 	write (1, &c, 1);
 	return (1);

@@ -46,15 +46,15 @@ SRC_BONUS = ft_lstadd_front.c\
 			ft_lstmap.c\
 	  
 
-SRC_FT_PRINTF = ft_print_element.c\
-			 ft_printf.c\
-			 ft_putaddr_hex.c\
-			 ft_putnbr.c\
-			 ft_putunbr.c\
-			 utils.c\
+SRC_FT_PRINTF = ft_printf/ft_print_element.c\
+			 ft_printf/ft_printf.c\
+			 ft_printf/ft_putaddr_hex.c\
+			 ft_printf/ft_putnbr_pf.c\
+			 ft_printf/ft_putunbr.c\
+			 ft_printf/utils.c\
 
-SRC_GNL = get_next_line.c\
-		  get_next_line_utils.c\
+SRC_GNL = get_next_line/get_next_line.c\
+		  get_next_line/get_next_line_utils.c\
 
 OBJ = $(SRC:.c=.o) 
 
@@ -73,8 +73,8 @@ all : $(NAME)
 %.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(NAME) : $(OBJ) $(OBJ_PRINTF) $(OBJ_GNL) libft.h ft_printf.h get_next_line.h
-	ar rcs $(NAME) $(OBJ) $(OBJ_PRINTF)
+$(NAME) : $(OBJ) $(OBJ_PRINTF) $(OBJ_GNL) libft.h
+	ar rcs $(NAME) $(OBJ) $(OBJ_PRINTF) $(OBJ_GNL)
 
 bonus : $(OBJ) $(OBJ_BONUS)
 	ar -rcs $(NAME) $(OBJ) $(OBJ_BONUS)
@@ -87,4 +87,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all bonus clean fclean re ft_printf
+.PHONY : all bonus clean fclean re

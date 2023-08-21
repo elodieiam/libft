@@ -1,37 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/15 16:50:19 by elrichar          #+#    #+#             */
-/*   Updated: 2023/06/07 21:15:50 by elrichar         ###   ########.fr       */
+/*   Created: 2023/05/16 11:06:24 by elrichar          #+#    #+#             */
+/*   Updated: 2023/07/22 14:08:29 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
-int	ft_printf(const char *s, ...)
+static int	ft_uilen(unsigned int nb)
 {
-	va_list	args;
-	int		total_len;
+	int	len;
 
-	if (!s || *s == '\0')
-		return (0);
-	total_len = 0;
-	va_start(args, s);
-	while (*s)
+	len = 0;
+	if (nb == 0)
+		len = 1;
+	while (nb > 0)
 	{
-		if (*s == '%')
-		{
-			total_len += ft_print_element((s + 1), args);
-			s++;
-		}
-		else
-			total_len += ft_putchar(*s);
-		s++;
+		nb /= 10;
+		len++;
 	}
-	va_end(args);
-	return (total_len);
+	return (len);
+}
+
+int	ft_putunbr(unsigned int n)
+{
+	char	c;
+	int		len_el;
+
+	len_el = ft_uilen(n);
+	if (n < 10)
+	{
+		c = n + 48;
+		write(1, &c, 1);
+	}
+	else
+	{
+		ft_putnbr_pf((n / 10));
+		ft_putnbr_pf((n % 10));
+	}
+	return (len_el);
 }

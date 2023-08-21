@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -23,7 +24,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-int			ft_atoi(const char *str);
+long long	ft_atoi(const char *str);
 void		ft_bzero(void *s, size_t size);
 void		*ft_calloc(size_t nb_el, size_t size);
 int			ft_isalnum(int c);
@@ -67,5 +68,31 @@ void		ft_lstiter(t_list *lst, void (*f)(void *));
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/*PRINTF*/
+
+int			ft_printf(const char *s, ...);
+int			ft_print_element(const char *s, va_list args);
+int			ft_putaddr(unsigned long n);
+int			ft_putchar_pf(char c);
+int			ft_puthex(unsigned int n, const char c);
+int			ft_putnbr_pf(int n);
+int			ft_putstr_pf(char *s);
+int			ft_putunbr(unsigned int n);
+
+/*GNL*/
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+char		*get_next_line(int fd);
+char		*read_file(int fd, char *stash);
+char		*get_line(char *stash);
+char		*clean_stash(char *stash);
+size_t		ft_strlen(const char *str);
+char		*ft_strchr(const char *str, int searched_char);
+char		*ft_strjoin_gnl(char *s1, char *s2);
+char		*ft_strdup(const char *src);
 
 #endif

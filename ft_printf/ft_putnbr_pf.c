@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_pf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 11:06:24 by elrichar          #+#    #+#             */
-/*   Updated: 2023/05/16 11:50:24 by elrichar         ###   ########.fr       */
+/*   Created: 2023/05/16 13:57:24 by elrichar          #+#    #+#             */
+/*   Updated: 2023/07/22 14:08:09 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
-static int	ft_uilen(unsigned int nb)
+static int	ft_ilen(long nb)
 {
-	int	len;
+	long int	len;
 
 	len = 0;
+	if (nb < 0)
+	{
+		len++;
+		nb *= (-1);
+	}
 	if (nb == 0)
 		len = 1;
 	while (nb > 0)
@@ -27,21 +32,28 @@ static int	ft_uilen(unsigned int nb)
 	return (len);
 }
 
-int	ft_putunbr(unsigned int n)
+int	ft_putnbr_pf(int n)
 {
-	char	c;
-	int		len_el;
+	long int	nb;
+	char		c;
+	int			len_el;
 
-	len_el = ft_uilen(n);
-	if (n < 10)
+	nb = n;
+	len_el = ft_ilen(nb);
+	if (nb < 0)
 	{
-		c = n + 48;
-		write(1, &c, 1);
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	if (nb >= 0 && nb < 10)
+	{
+		c = nb + 48;
+		write (1, &c, 1);
 	}
 	else
 	{
-		ft_putnbr((n / 10));
-		ft_putnbr((n % 10));
+		ft_putnbr_pf((nb / 10));
+		ft_putnbr_pf((nb % 10));
 	}
 	return (len_el);
 }

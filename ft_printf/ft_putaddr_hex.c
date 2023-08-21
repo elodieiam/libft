@@ -6,11 +6,11 @@
 /*   By: elrichar <elrichar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:42:13 by elrichar          #+#    #+#             */
-/*   Updated: 2023/05/17 14:51:23 by elrichar         ###   ########.fr       */
+/*   Updated: 2023/07/22 14:06:05 by elrichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 static int	ft_ulen(unsigned int nb)
 {
