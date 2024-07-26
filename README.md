@@ -14,5 +14,10 @@ The goal of this project is to deepen our understanding of low-level programmig,
 2. Improve memory management skills
 3. Implement efficient algorithms
 
+## Installation
+To install the library :
+
+git clone git@github.com:elodieiam/libft.git 
+
 
 
